@@ -2,25 +2,39 @@ import React, { useState } from 'react'
 import TopbarDropdownWrapper from './topbarDropdown.style.'
 import { Avatar, Menu, Popover, Tooltip } from 'antd'
 import { TopbarItem } from './topbar.style'
-import { useDispatch } from 'react-redux'
 import authAction from "../../redux/auth/actions";
+import { useAuthenticator } from '@aws-amplify/ui-react';
 
 const { logout } = authAction;
 
 const TopbarUser = () => {
   const [visible, setVisible] = useState(false);
-  const dispatch = useDispatch();
+
+  const { signOut } = useAuthenticator();
+
+  const onLogout = () => {
+    console.log('out');
+    
+    logout()
+    signOut()
+  }
+
+  const items = [
+    {
+      label: (
+        <span className="item" onClick={() => onLogout()}>
+          <i className="ion-log-out" />
+          Logout
+        </span>
+      ),
+      key: 'logout',
+      // icon: <i className="ion-log-out" />,
+    },
+  ]
 
   const content = (
     <TopbarDropdownWrapper className='user'>
-      <Menu>
-        <Menu.Item>
-          <span className="item" onClick={() => dispatch(logout())}>
-            <i className="ion-log-out" />
-            Logout
-          </span>
-        </Menu.Item>
-      </Menu>
+      <Menu items={items} />
     </TopbarDropdownWrapper>
   )
 

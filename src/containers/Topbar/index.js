@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import Topbar, { TopbarLeft, TopbarRight } from './topbar.style'
 import TopbarSearch from './topbarSearch'
 import { shallowEqual, useSelector } from 'react-redux'
-import Sidebar from '../Sidebar/index'
 import TopbarUser from './topbarUser'
 
 function storeSelector(state) {
@@ -21,9 +20,9 @@ const TopbarContainer = () => {
       <Topbar>
         <TopbarLeft>
           <Link to="/" className='logo'>
-            <img src='/images/icons/cozrum_logo2.svg' alt='logo' />
+            <img style={{ width: 25, height: 25 }} src='/images/logoEd.png' alt='logo' />
           </Link>
-          {/* {view !== 'MobileView' && <TopbarSearch />} */}
+          {view !== 'MobileView' && <TopbarSearch />}
         </TopbarLeft>
         <TopbarRight>
           {!loading &&
@@ -34,7 +33,6 @@ const TopbarContainer = () => {
           <TopbarUser username={username} />
         </TopbarRight>
       </Topbar>
-      <Sidebar />
     </>
   )
 }

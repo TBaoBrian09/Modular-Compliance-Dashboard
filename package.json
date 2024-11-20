@@ -11,6 +11,7 @@
     "aws-amplify": "^6.8.2",
     "lodash": "^4.17.21",
     "nprogress": "^0.2.0",
+    "query-string": "^9.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
@@ -24,10 +25,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js"
   },
   "eslintConfig": {
     "extends": [
@@ -50,10 +52,20 @@
   "devDependencies": {
     "@aws-amplify/backend": "^1.8.0",
     "@aws-amplify/backend-cli": "^1.4.2",
+    "@craco/craco": "^7.1.0",
     "aws-cdk": "^2.167.2",
     "aws-cdk-lib": "^2.167.2",
     "constructs": "^10.4.2",
     "esbuild": "^0.24.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "prettier": "^3.3.3",
     "tsx": "^4.19.2",
     "typescript": "^4.9.5"
   }

@@ -1,6 +1,17 @@
+import PieChartComponent from "./components/pieChart"
+import { Box } from "../../components/utility/styles"
+import BarChartComponent from "./components/barChart"
+
 const ComplianceStatus = () => {
   return (
-    <div>ComplianceStatus</div>
+    <Box>
+      <Box height="400px">
+        <PieChartComponent />
+      </Box>
+      <Box height="400px">
+        <BarChartComponent />
+      </Box>
+    </Box>
   )
 }
 

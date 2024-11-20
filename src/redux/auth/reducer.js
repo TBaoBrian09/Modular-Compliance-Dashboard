@@ -1,7 +1,7 @@
 import actions from "./actions"
 
 const initState = {
-  idToken: '123456789Ntb',
+  token: null,
   use: {},
   routes: [],
   groups: [],

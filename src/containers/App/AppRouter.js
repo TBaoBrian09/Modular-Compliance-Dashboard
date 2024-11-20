@@ -4,7 +4,7 @@ import asyncComponent from "../../helpers/AsyncFunc"
 const routes = [
   {
     path: "",
-    component: asyncComponent(() => import("../Overview"))
+    component: asyncComponent(() => import("../taskOverview"))
   },
   {
     path: "compliance-status",
@@ -22,9 +22,6 @@ const AppRouter = () => {
   routes.forEach(({path, exact = true, component: Elem}) => {
     routeComponents.push(<Route key={path} path={exact ? `/${path}` : `/${path}/*`} element={<Elem />} />);
   })
-
-  console.log('routeComponents', routeComponents);
-  
 
   return (
     <Routes>

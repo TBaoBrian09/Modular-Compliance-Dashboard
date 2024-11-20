@@ -1,14 +1,24 @@
 
 
 import { Menu } from 'antd'
-import { useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
+import { createChangeParams } from "../../helpers/func"
 
 import options from './options'
 import _ from 'lodash'
+import queryString from 'query-string'
+import { Box } from '../../components/utility/styles'
 
 const SidebarContainer = () => {
   const [isShowMenu, setIsShowMenu] = useState(true)
+
+  const { pathname } = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = useMemo(() => queryString.parse(searchParams.toString()), [searchParams]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const changeSearchParams = useCallback(createChangeParams(setSearchParams), [setSearchParams]);
 
   const navigate = useNavigate()
 
@@ -23,7 +33,9 @@ const SidebarContainer = () => {
     }));
   }, [])
 
-  const selectedKeys = ""
+  const [, path1, path2] = pathname.split("/");
+  const path = `/${path1}`
+  const selectedKeys = [path, `${path}/${path2}`]
 
   useEffect(() => {
     if (menuItems.length <= 1) {
@@ -36,12 +48,13 @@ const SidebarContainer = () => {
     }
   }, [menuItems, navigate])
 
-  console.log('menuItems', {menuItems, isShowMenu});
-  
-
   if (!isShowMenu) return null
 
-  return <Menu mode='horizontal' selectedKeys={selectedKeys} items={menuItems} />
+  return (
+    <Box width="256px">
+      <Menu style={{ height: '100%' }} mode='vertical' selectedKeys={selectedKeys} items={menuItems} />
+    </Box>
+  )
 }
 
 export default SidebarContainer

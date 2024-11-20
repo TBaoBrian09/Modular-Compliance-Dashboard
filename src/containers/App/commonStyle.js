@@ -12,11 +12,13 @@ const AppHolder = styled.div`
       }
     }
   }
-  .cz-content {
-    min-height: 120px;
+  .app-content {
+    /* max-height: 100vh; */
+    min-height: 100vh;
     flex-shrink: 0;
     background: #f3f3f3;
     position: relative;
+    padding: 20px 10px;
     & > div {
       @media screen and (max-width: 1200px) and (min-width: 769px) {
         flex-wrap: wrap;

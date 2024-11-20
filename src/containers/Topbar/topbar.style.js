@@ -12,11 +12,13 @@ const Topbar = styled.div`
 
 const TopbarLeft = styled.div`
   display: flex;
+  gap: 10px;
   align-items: center;
   .logo {
     height: 100%;
     padding: 0 14px;
     display: flex;
+    align-items: center;
     background-color: #18b4ca;
   }
   img {
@@ -30,7 +32,7 @@ const TopbarLeft = styled.div`
 const TopbarRight = styled.ul`
   display: flex;
   align-items: center;
-  margin-right: 22px;
+  margin: 0px;
   width: 100%;
   justify-content: flex-end;
   @media only screen and (max-width: 767px) {
