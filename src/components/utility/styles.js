@@ -74,3 +74,28 @@ export const Box = styled.div`
     background-color: rgb(11, 171, 193);
   }
 `;
+
+export const BoxWhite = styled.div`
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+`
+
+export const TagsTask = styled.div`
+  color: white;
+  border-radius: 5px;
+  max-width: 80px;
+  text-align: center;
+  &.overdue {
+    background: red;
+  }
+  &.progress {
+    background: green;
+  }
+  &.pending {
+    background: orange;
+  }
+  &.completed {
+    background: blue;
+  }
+`

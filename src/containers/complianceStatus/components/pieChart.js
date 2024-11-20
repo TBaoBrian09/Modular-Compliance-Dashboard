@@ -1,16 +1,5 @@
 import { useState } from 'react';
-import { PieChart, Pie, Sector, ResponsiveContainer, Legend } from 'recharts';
-import { Box } from "@components/utility/styles"
-import { Col, Row } from 'antd';
-import styled from 'styled-components';
-import _ from 'lodash';
-
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
+import { PieChart, Pie, Sector, ResponsiveContainer, Legend, Cell } from 'recharts';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -60,7 +49,7 @@ const renderActiveShape = (props) => {
   );
 };
 
-const PieChartComponent = () => {
+const PieChartComponent = ({ data }) => {
   const [state, setState] = useState({
     activeIndex: 0
   })
@@ -85,57 +74,19 @@ const PieChartComponent = () => {
           fill="#8884d8"
           dataKey="value"
           onMouseEnter={onPieEnter}
-        />
+        >
+          {data?.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
         <Legend
           layout="horizontal"
           verticalAlign="bottom"
           align="center"
         />
       </PieChart>
-      {/* <Legend
-        content={<CustomLegend total={100} />}
-        iconSize={14}
-        layout="horizontal"
-        verticalAlign="bottom"
-        align="center"
-      /> */}
-
     </ResponsiveContainer>
   )
 }
-
-const CustomLegend = ({ payload, total }) => {
-  return (
-    <Box>
-      <Row gutter={[5, 5]}>
-        {payload.map((entry, index) => {
-          const percent = ((_.get(entry, "payload.total") / total) * 100).toFixed(2) || 0;
-          return (
-            <Col span={12} key={`legend-${index}`} style={{ color: entry.color }}>
-              <Wrap flex justify="start" gap={5}>
-                <div className="box-legand" style={{ backgroundColor: entry.color }} />
-                <span className="text-legand">
-                  {entry.value} {`(${percent}%)`}
-                </span>
-              </Wrap>
-            </Col>
-          );
-        })}
-      </Row>
-    </Box>
-  );
-};
-
-const Wrap = styled(Box)`
-  .box-legand {
-    width: 15px;
-    height: 15px;
-    min-width: 15px;
-  }
-  .text-legand {
-    font-size: 12px;
-    font-weight: bold !important;
-  }
-`;
 
 export default PieChartComponent

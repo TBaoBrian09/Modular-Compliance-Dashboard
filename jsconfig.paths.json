@@ -9,6 +9,7 @@
       "@redux/*": ["src/redux/*"],
       "@settings/*": ["src/settings/*"],
       "@image/*": ["src/image/*"],
+      "@data/*": ["src/data/*"],
       "@languageProvider/*": ["src/languageProvider/*"]
     }
   }
