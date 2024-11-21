@@ -1,5 +1,5 @@
-import TitlePage from "@components/utility/uielemnts/titlePage"
-import { Box, BoxWhite } from "@components/utility/styles"
+import TitlePage from "../../components/utility/uielemnts/titlePage"
+import { Box, BoxWhite } from "../../components/utility/styles"
 import PieChartComponent from "./components/pieChart"
 import BarChartComponent from "./components/barChart"
 import COMPLIANCE_STATUS from "../../data/TASK_OVERVIEW.json"

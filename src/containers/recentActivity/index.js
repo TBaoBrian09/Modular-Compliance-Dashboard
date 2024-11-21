@@ -1,5 +1,5 @@
-import { Box, BoxWhite } from "@components/utility/styles";
-import TitlePage from "@components/utility/uielemnts/titlePage";
+import { Box, BoxWhite } from "../../components/utility/styles";
+import TitlePage from "../../components/utility/uielemnts/titlePage";
 import COMPLIANCE_STATUS from "../../data/RECENT_ACTIVITY.json"
 import TimelineComponent from "./Timeline";
 

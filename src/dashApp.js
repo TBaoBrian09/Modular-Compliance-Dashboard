@@ -44,7 +44,7 @@ function DashApp() {
           'picture',
           'zoneinfo',]}
           formFields={formFields}
-          // socialProviders={['google']}
+        // socialProviders={['google']}
         >
           <Provider store={store}>
             <AppContent />

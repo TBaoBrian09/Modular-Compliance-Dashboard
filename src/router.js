@@ -1,5 +1,4 @@
-// import { useSelector } from "react-redux"
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import asyncComponent from "./helpers/AsyncFunc";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 
@@ -8,7 +7,6 @@ const App = asyncComponent(() => import("./containers/App/App"))
 
 const PublicRouter = () => {
   const { user, route } = useAuthenticator();
-  console.log({ user, route });
 
   if (route === "loading") {
     return <div>Loading...</div>

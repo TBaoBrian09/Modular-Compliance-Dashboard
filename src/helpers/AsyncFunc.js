@@ -6,7 +6,8 @@ const loaders = <Loader />;
 export default function Async(importComponent) {
   const Component = lazy(importComponent)
 
-  return props => (
+  // eslint-disable-next-line react/display-name
+  return (props) => (
     <Suspense fallback={loaders}>
       <Component {...props} />
     </Suspense>

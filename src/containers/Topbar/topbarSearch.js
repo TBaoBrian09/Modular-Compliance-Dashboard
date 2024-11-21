@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 const TopbarSearch = () => {
   const [value, setValue] = useState();
-  const [options, setOptions] = useState([])
+  // const [options, setOptions] = useState([])
 
   const navigate = useNavigate()
 
-  const onSearch = async text => { }
+  const onSearch = async () => { }
 
   const onSelect = v => {
     setValue("");
@@ -26,7 +26,7 @@ const TopbarSearch = () => {
         onSearch={onSearch}
         onSelect={onSelect}
         style={{ width: 200 }}
-        options={options}
+        options={[]}
       >
         <Input placeholder="Type in to search..." />
       </AutoComplete>

@@ -26,13 +26,14 @@ const App = () => {
 
   useEffect(() => {
     getTokens()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <AppHolder>
       <Layout>
         <Topbar />
-        <Box flex>
+        <Box flex="true">
           <Sidebar />
           <Layout className="cz-main-layout">
             <Content className="app-content">

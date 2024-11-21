@@ -13,7 +13,7 @@ function storeSelector(state) {
 }
 
 const TopbarContainer = () => {
-  const { loading, view, username } = useSelector(storeSelector, shallowEqual)
+  const { loading, username } = useSelector(storeSelector, shallowEqual)
 
   return (
     <>

@@ -1,24 +1,24 @@
 
 
 import { Menu } from 'antd'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
-import { createChangeParams } from "../../helpers/func"
+import { useEffect, useMemo, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+// import { createChangeParams } from "../../helpers/func"
 
 import options from './options'
 import _ from 'lodash'
-import queryString from 'query-string'
+// import queryString from 'query-string'
 import { Box } from '../../components/utility/styles'
 
 const SidebarContainer = () => {
   const [isShowMenu, setIsShowMenu] = useState(true)
 
   const { pathname } = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = useMemo(() => queryString.parse(searchParams.toString()), [searchParams]);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const query = useMemo(() => queryString.parse(searchParams.toString()), [searchParams]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const changeSearchParams = useCallback(createChangeParams(setSearchParams), [setSearchParams]);
+  // const changeSearchParams = useCallback(createChangeParams(setSearchParams), [setSearchParams]);
 
   const navigate = useNavigate()
 
