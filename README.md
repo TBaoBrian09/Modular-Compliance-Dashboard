@@ -1,32 +1,59 @@
 # Getting Started with Modular Compliance Dashboard
 
-This project is a web application built with ReactJS and Redux & Redux-saga for managing and displaying data.
+This project is a **web application** built with **ReactJS**, **Redux**, and **Redux-saga** for managing and displaying data efficiently. It includes several modules for compliance management, including task overview, compliance status, recent activity, and authentication.
 
 ## Features
 
-Task Overview Module: - It shows table with hard data that's include: title, due date, assigned person, and status.
-                      - That allow sorting/filtering of tasks and pagination.
-Compliance Status Module: - It shows pie chart and bar chart with hard data that's include: title, due date, assigned person, and status.
-                      - Displaying metrics like percentage of completed tasks, overdue tasks,
-Recent Activity Module: Show a log of recent actions related to compliance tasks include: a timestamp, action description, and user involved.
-Authenticator: - With AWS Amplify UI
+### 1. **Task Overview Module**
+- Displays a table with hardcoded task data including:
+  - Task title
+  - Due date
+  - Assigned person
+  - Status
+- Allows sorting, filtering, and pagination of tasks.
 
-## Tools/Library/Framework: React.js, Redux, Redux-saga, Ant Design, AWS Amplify, jest, v.v
+### 2. **Compliance Status Module**
+- Displays pie chart and bar chart with compliance-related data, including:
+  - Task title
+  - Due date
+  - Assigned person
+  - Status
+- Shows key metrics like:
+  - Percentage of completed tasks
+  - Overdue tasks
+  
+### 3. **Recent Activity Module**
+- Displays a log of recent actions related to compliance tasks, including:
+  - Timestamp
+  - Action description
+  - User involved
+  
+### 4. **Authenticator**
+- Uses **AWS Amplify UI** for user authentication.
+
+## Tech Stack
+
+- **Frontend:**
+  - **React.js**
+  - **Redux** & **Redux-saga**
+  - **Ant Design**
+  - **AWS Amplify**
+  - **Jest** (for testing)
+  - **React Router** (for routing)
+  - **Recharts** (for data visualization)
+
+## Prerequisites
+
+Before running the project locally, ensure that you have the following installed:
+
+- **Node.js** (version 14 or later)
+- **npm** (Node Package Manager)
 
 ## Steps to Run Locally
 
-Clone the repository: `https://github.com/TBaoBrian09/modular-compliance-dashboard.git`
+### 1. Clone the repository
 
-## Step 1
+First, clone the repository to your local machine using the following command:
 
-## `npm install --legacy-peer-deps`
-
-## Step 2
-
-### `npm start`
-
-Open your browser and pass link `http://localhost:3000`
-
-## If you want to test this project
-
-## run `npm test`
+```bash
+git clone https://github.com/TBaoBrian09/modular-compliance-dashboard.git
