@@ -47,7 +47,7 @@ This project is a **web application** built with **ReactJS**, **Redux**, and **R
 Before running the project locally, ensure that you have the following installed:
 
 - **Node.js** (version 14 or later)
-- **npm** (Node Package Manager)
+- **npm install --legacy-peer-deps** (Node Package Manager)
 
 ## Steps to Run Locally
 
