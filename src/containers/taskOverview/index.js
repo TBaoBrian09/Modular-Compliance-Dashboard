@@ -4,7 +4,8 @@ import { useEffect } from "react"
 
 import actions from "../../redux/tashOverview/actions"
 import taskOverviewData from "../../data/TASK_OVERVIEW.json"
-import { BoxWhite } from "@components/utility/styles"
+import { Box, BoxWhite } from "@components/utility/styles"
+import TitlePage from "@components/utility/uielemnts/titlePage"
 
 const TaskOverview = () => {
   const { data, loading } = useSelector(state => state.TaskOverview)
@@ -13,9 +14,12 @@ const TaskOverview = () => {
     dispatch(actions.update({ data: taskOverviewData }))
   }, [dispatch])
   return (
-    <BoxWhite>
-      <TableComponent data={data} loading={loading} />
-    </BoxWhite>
+    <Box>
+      <TitlePage title="Task Overview" />
+      <BoxWhite>
+        <TableComponent data={data} loading={loading} />
+      </BoxWhite>
+    </Box>
   )
 }
 

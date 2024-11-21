@@ -13,21 +13,39 @@ Amplify.configure(outputs);
 
 function AppContent() {
   const { route } = useAuthenticator((context) => [context.route]);
-  
-  // Nếu người dùng đang ở trạng thái "authenticated"
+
   if (route === "authenticated") {
     return <PublicRouter />;
   }
-
-  // Nếu chưa đăng nhập, điều hướng đến "/signin"
-  return null; // UI sẽ được tùy chỉnh ở `PublicRouter` hoặc `Signin`
+  return null;
 }
 
 function DashApp() {
+
+  const formFields = {
+    signUp: {
+      name: {
+        label: 'Full Name',
+        placeholder: 'Enter your full name',
+        isRequired: true, // Make this field required
+      },
+    },
+  }
+
   return (
     <ConfigProvider locale="en">
       <ThemeProvider theme={theme}>
-        <Authenticator>
+        <Authenticator signUpAttributes={['address',
+          'birthdate',
+          'email',
+          'gender',
+          'name',
+          'phone_number',
+          'picture',
+          'zoneinfo',]}
+          formFields={formFields}
+          // socialProviders={['google']}
+        >
           <Provider store={store}>
             <AppContent />
           </Provider>

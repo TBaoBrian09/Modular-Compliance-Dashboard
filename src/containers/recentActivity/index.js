@@ -1,13 +1,18 @@
+import { Box, BoxWhite } from "@components/utility/styles";
+import TitlePage from "@components/utility/uielemnts/titlePage";
 import COMPLIANCE_STATUS from "../../data/RECENT_ACTIVITY.json"
-import { BoxWhite } from "@components/utility/styles";
 import TimelineComponent from "./Timeline";
 
 const RecentActivity = () => {
   return (
-    <BoxWhite>
-      <TimelineComponent data={COMPLIANCE_STATUS} />
-    </BoxWhite>
-
+    <Box>
+      <TitlePage title="Compliance Status" />
+      <BoxWhite>
+        <Box p="20px 10px">
+          <TimelineComponent data={COMPLIANCE_STATUS} />
+        </Box>
+      </BoxWhite>
+    </Box>
   )
 }
 export default RecentActivity

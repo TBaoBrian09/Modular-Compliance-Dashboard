@@ -1,60 +1,32 @@
-import React, { useState } from 'react'
-import TopbarDropdownWrapper from './topbarDropdown.style.'
-import { Avatar, Menu, Popover, Tooltip } from 'antd'
-import { TopbarItem } from './topbar.style'
-import authAction from "../../redux/auth/actions";
+import React from 'react'
+import _ from "lodash";
+import { Avatar, Button } from 'antd'
 import { useAuthenticator } from '@aws-amplify/ui-react';
+import { LogoutOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
+
+import { Box } from '@components/utility/styles';
+import authAction from "../../redux/auth/actions";
 
 const { logout } = authAction;
 
 const TopbarUser = () => {
-  const [visible, setVisible] = useState(false);
-
+  const { userInfo } = useSelector(state => state.Auth)
   const { signOut } = useAuthenticator();
 
   const onLogout = () => {
-    console.log('out');
-    
     logout()
     signOut()
   }
 
-  const items = [
-    {
-      label: (
-        <span className="item" onClick={() => onLogout()}>
-          <i className="ion-log-out" />
-          Logout
-        </span>
-      ),
-      key: 'logout',
-      // icon: <i className="ion-log-out" />,
-    },
-  ]
-
-  const content = (
-    <TopbarDropdownWrapper className='user'>
-      <Menu items={items} />
-    </TopbarDropdownWrapper>
-  )
-
   return (
-    <TopbarItem>
-      <Popover
-        content={content}
-        trigger="click"
-        open={visible}
-        onOpenChange={setVisible}
-        // arrowPointAtCenter={true}
-        placement="bottomLeft"
-      >
-        <Tooltip>
-          <Avatar size={34} style={{ background: "#18b4c9" }}>
-            Bao
-          </Avatar>
-        </Tooltip>
-      </Popover>
-    </TopbarItem>
+    <Box flex justify="flex-end" gap={10} pr={10}>
+      <div style={{display: 'flex', gap: 10, alignItems: 'center'}}>
+        {_.get(userInfo, 'name')}
+        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size={34} style={{ background: "#18b4c9" }} />
+      </div>
+      <Button onClick={() => onLogout()} color='danger' variant='solid' icon={<LogoutOutlined />}>Logout</Button>
+    </Box>
   )
 }
 

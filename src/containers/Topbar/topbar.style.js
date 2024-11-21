@@ -11,6 +11,7 @@ const Topbar = styled.div`
 `;
 
 const TopbarLeft = styled.div`
+  width: 100%;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -30,10 +31,10 @@ const TopbarLeft = styled.div`
 `;
 
 const TopbarRight = styled.ul`
+  width: 100%;
   display: flex;
   align-items: center;
   margin: 0px;
-  width: 100%;
   justify-content: flex-end;
   @media only screen and (max-width: 767px) {
     margin-right: 0;

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import Topbar, { TopbarLeft, TopbarRight } from './topbar.style'
-import TopbarSearch from './topbarSearch'
 import { shallowEqual, useSelector } from 'react-redux'
 import TopbarUser from './topbarUser'
+import {Box} from "@components/utility/styles"
 
 function storeSelector(state) {
   return {
@@ -20,9 +20,9 @@ const TopbarContainer = () => {
       <Topbar>
         <TopbarLeft>
           <Link to="/" className='logo'>
-            <img style={{ width: 25, height: 25 }} src='/images/logoEd.png' alt='logo' />
+            <img style={{ width: 45 }} src='/images/koi.png' alt='logo' />
           </Link>
-          {view !== 'MobileView' && <TopbarSearch />}
+          <Box width="auto">MC Dashboard</Box>
         </TopbarLeft>
         <TopbarRight>
           {!loading &&

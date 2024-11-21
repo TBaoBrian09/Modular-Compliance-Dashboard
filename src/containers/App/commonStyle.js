@@ -31,6 +31,12 @@ const AppHolder = styled.div`
       }
     }
   }
+
+  .app-footer {
+    background: #56CCF2;  
+    background: -webkit - linear - gradient(to right, #2F80ED, #56CCF2);
+    background: linear - gradient(to right, #2F80ED, #56CCF2);
+  }
 `;
 
 export default AppHolder;

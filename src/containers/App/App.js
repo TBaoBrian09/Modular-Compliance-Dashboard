@@ -1,24 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Layout } from 'antd';
 import Topbar from '../Topbar/index';
 import AppHolder from './commonStyle';
 import AppRouter from './AppRouter';
 import Footer from '../Footer/index';
-// import { getSessionAws } from '../../hooks';
+import { getSessionAws } from '../../hooks';
 import Sidebar from '../Sidebar/index'
 import { Box } from '../../components/utility/styles';
+import { useDispatch } from 'react-redux';
+import actions from "../../redux/auth/actions"
 
 const { Content } = Layout;
 
 const App = () => {
-  // const getTokens = async () => {
-  //   const token = await getSessionAws()
-  //   return token
-  // }
+  const dispath = useDispatch();
+  const getTokens = async () => {
+    const token = await getSessionAws()
+    if (token) {
+      dispath(actions.update({
+        userInfo: token.idToken.payload
+      }))
+    }
+    return token
+  }
 
-  // useEffect(() => {
-  //   const token = getTokens
-  // }, [])
+  useEffect(() => {
+    getTokens()
+  }, [])
 
   return (
     <AppHolder>

@@ -2,7 +2,7 @@ import { Avatar, Pagination, Timeline } from 'antd';
 import { useState } from 'react'
 
 import { Box } from '@components/utility/styles';
-import { WrapTimeLineContent } from './styles';
+import { CsTimelineItem, WrapTimeLineContent } from './styles';
 
 const TimelineComponent = ({ data }) => {
   const [current, setCurrent] = useState(1);
@@ -24,7 +24,7 @@ const TimelineComponent = ({ data }) => {
     <Box flex flexColumn center>
       <Timeline mode="left">
         {getDataForPage(current).map((item, index) => (
-          <Timeline.Item
+          <CsTimelineItem
             key={index}
           >
             <WrapTimeLineContent flex gap={5}>
@@ -34,21 +34,21 @@ const TimelineComponent = ({ data }) => {
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
-                  width: '100px' // Hoặc chiều rộng mà bạn muốn giới hạn
+                  width: '100px'
                 }}>
                   <strong>{item.user_involved}</strong>
                 </Box>
               </Box>
               <Box flex flexColumn>
                 <Box>
-                  <strong>{item.timestamp}</strong>
-                </Box>
-                <Box>
                   <strong>{item.action_description}</strong>
+                </Box>
+                <Box flex justify="flex-end" style={{ fontSize: 12, fontStyle: 'italic' }}>
+                  {item.timestamp}
                 </Box>
               </Box>
             </WrapTimeLineContent>
-          </Timeline.Item>
+          </CsTimelineItem>
         ))}
       </Timeline>
       <Pagination

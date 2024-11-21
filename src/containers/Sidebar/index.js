@@ -29,7 +29,8 @@ const SidebarContainer = () => {
         <Link to={o.key}>
           {o.label}
         </Link>
-      )
+      ),
+      icon: o.icon
     }));
   }, [])
 

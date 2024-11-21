@@ -1,9 +1,18 @@
-import React from 'react'
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
-const Footer = () => {
+const { Header, Content, Footer, Sider } = Layout;
+
+const FooterComponent = () => {
   return (
-    <div style={{ width: '100%', height: 150, background: '#ccc' }}>Footer</div>
+    <Footer
+      style={{
+        textAlign: 'center',
+      }}
+      className='app-footer'
+    >
+      Modular Compliance Dashboard ©{new Date().getFullYear()} Created by THAIBAO
+    </Footer>
   )
 }
 
-export default Footer
+export default FooterComponent
